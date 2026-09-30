@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0A0E1C">
 
-<title>Grace Ene, GTM Engineer</title>
-<meta name="description" content="Grace Ene builds revenue systems and AI automation that teams can run on their own. See case studies in lead routing, invoice extraction, and knowledge retrieval.">
+<title>Grace Ene, GTM Engineer &amp; Automation Builder</title>
+<meta name="description" content="GTM engineer and automation builder with 8 years in revenue operations. I build self-hosted workflows and AI systems that revenue teams can run on their own.">
 <link rel="canonical" href="https://grace-ene.netlify.app/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://grace-ene.netlify.app/">
-<meta property="og:title" content="Grace Ene, GTM Engineer">
-<meta property="og:description" content="Grace Ene builds revenue systems and AI automation that teams can run on their own.">
-<meta property="og:image" content="https://prudie.dev/grace@2x.jpg">
+<meta property="og:title" content="Grace Ene, GTM Engineer & Automation Builder">
+<meta property="og:description" content="GTM engineer and automation builder with 8 years in revenue operations. I build self-hosted workflows and AI systems that revenue teams can run on their own.">
+<meta property="og:image" content="https://grace-ene.netlify.app/grace@2x.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -34,14 +34,16 @@
     --gradient:linear-gradient(135deg,#22A794 0%,#2B7FFE 50%,#5867EF 100%);
     --gradient-cta:linear-gradient(135deg,#1B7970 0%,#215DBA 50%,#414CB0 100%);
     --navy-deep:#0A0E1C;
+    --glow-teal:rgba(34,167,148,.35);
     --glow-blue:rgba(43,127,254,.35);
     --glow-violet:rgba(88,103,239,.35);
-    --measure:62ch;
+    --measure:60ch;
     --gutter:clamp(1.25rem,5vw,4.5rem);
     --radius:14px;
     --radius-sm:9px;
     --shadow-sm:0 1px 2px rgba(10,14,28,.08);
     --shadow-md:0 18px 36px -20px rgba(10,14,28,.24);
+    --shadow-lg:0 30px 60px -24px rgba(10,14,28,.32);
     --ease:cubic-bezier(.22,.8,.32,1);
   }
   *{box-sizing:border-box}
@@ -52,7 +54,7 @@
     font-family:"Source Serif 4",Georgia,serif;
     font-size:clamp(1rem,0.96rem + 0.2vw,1.0625rem);line-height:1.65;
   }
-  h1,h2,h3,.ui{font-family:Archivo,system-ui,sans-serif}
+  h1,h2,h3,h4,.ui{font-family:Archivo,system-ui,sans-serif}
   a{color:inherit}
   :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
   img{max-width:100%;display:block}
@@ -60,6 +62,14 @@
 
   .wrap{max-width:72rem;margin:0 auto;padding-inline:var(--gutter)}
   .glow-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+  @media (prefers-reduced-motion:no-preference){
+    .glow-blob{animation:blobDrift 16s ease-in-out infinite alternate}
+    .glow-blob.b2{animation-duration:20s;animation-delay:-6s}
+    @keyframes blobDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-26px,20px) scale(1.1)}}
+  }
+
+  .skip-link{position:absolute;left:-9999px;top:0;background:#fff;color:var(--ink);padding:.85rem 1.4rem;z-index:100;border-radius:0 0 10px 0;font-family:Archivo;font-weight:600;text-decoration:none}
+  .skip-link:focus{left:0}
 
   .scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--gradient);width:0%;z-index:70}
 
@@ -69,31 +79,45 @@
   .site-header.is-scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.5)}
   .site-header.is-scrolled::after{opacity:1}
   .masthead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:1.5rem}
-  .mark{font-family:Archivo;font-weight:600;font-size:1.0625rem;letter-spacing:-0.02em;text-decoration:none;color:#fff}
+  .mark{font-family:Archivo;font-weight:700;font-size:1.0625rem;letter-spacing:-0.02em;text-decoration:none;color:#fff}
   .masthead nav{font-family:Archivo;font-size:0.9375rem;display:flex;gap:1.5rem}
   .masthead nav a{position:relative;color:rgba(255,255,255,.72);text-decoration:none;padding-bottom:3px}
   .masthead nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--blue);transition:right .25s var(--ease)}
   .masthead nav a:hover{color:#fff}
   .masthead nav a:hover::after{right:0}
+  @media (max-width:640px){.masthead nav{gap:1.05rem;font-size:.8125rem}}
 
   /* hero */
-  .hero{position:relative;overflow:hidden;background:var(--navy-deep);padding-block:clamp(3rem,9vw,6rem)}
-  .hero .glow-blob{width:520px;height:520px;top:-180px;right:-100px;background:radial-gradient(circle,var(--glow-blue),transparent 70%);opacity:.6}
-  .hero-copy{position:relative;z-index:1;max-width:42rem}
-  h1{font-weight:600;font-size:clamp(2.4rem,1.6rem + 3.6vw,4.05rem);line-height:1.03;letter-spacing:-0.035em;margin:0;color:#fff}
-  .hero-role{font-family:Archivo;font-weight:600;font-size:1rem;color:rgba(255,255,255,.55);margin:.9rem 0 0;text-transform:uppercase;letter-spacing:.04em}
-  .lede{max-width:var(--measure);margin:.9rem 0 0;color:rgba(255,255,255,.72)}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;align-items:center;margin-top:2.25rem}
+  .hero{position:relative;overflow:hidden;background:var(--navy-deep);padding-block:clamp(3rem,8vw,5.5rem) clamp(3rem,7vw,5rem)}
+  .hero .glow-blob.b1{width:520px;height:520px;top:-200px;right:-120px;background:radial-gradient(circle,var(--glow-blue),transparent 70%);opacity:.6}
+  .hero .glow-blob.b2{width:420px;height:420px;bottom:-160px;left:-100px;background:radial-gradient(circle,var(--glow-violet),transparent 70%);opacity:.45}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:clamp(2.5rem,6vw,3.5rem);align-items:center}
+  @media (min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+  .eyebrow{font-family:Archivo;font-weight:700;font-size:.75rem;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin:0 0 1rem}
+  h1{font-weight:700;font-size:clamp(2.6rem,1.7rem + 3.8vw,4.25rem);line-height:1.02;letter-spacing:-0.035em;margin:0;color:#fff}
+  .lede{max-width:var(--measure);margin:1.25rem 0 0;color:rgba(255,255,255,.78);font-size:clamp(1.0625rem,1rem + .3vw,1.25rem)}
+  .lede-sub{max-width:var(--measure);margin:.85rem 0 0;color:rgba(255,255,255,.55);font-family:Archivo;font-size:.875rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;align-items:center;margin-top:2rem}
   .hero-actions .btn{background-image:var(--gradient-cta);color:#fff;box-shadow:0 12px 30px -12px var(--glow-violet)}
   .hero-actions .btn:hover{filter:brightness(1.12);box-shadow:0 16px 36px -12px var(--glow-blue)}
   .hero-actions .btn-quiet{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.4)}
   .hero-actions .btn-quiet:hover{color:#fff;border-color:#fff}
+  .quick-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+  .quick-badge{font-family:Archivo;font-weight:600;font-size:.75rem;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.05);padding:.45rem .85rem;border-radius:999px;white-space:nowrap}
 
-  .btn{font-family:Archivo;font-weight:500;font-size:0.9375rem;background:var(--ink);color:var(--paper);padding:0.8rem 1.4rem;border-radius:8px;text-decoration:none;display:inline-block;transition:filter .15s ease,transform .15s ease,box-shadow .15s ease}
+  .btn{font-family:Archivo;font-weight:600;font-size:0.9375rem;background:var(--ink);color:var(--paper);padding:0.85rem 1.5rem;border-radius:8px;text-decoration:none;display:inline-block;transition:filter .15s ease,transform .15s ease,box-shadow .15s ease}
   .btn:hover{filter:brightness(1.3);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
   .btn:active{transform:translateY(0)}
-  .btn-quiet{font-family:Archivo;font-size:0.9375rem;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color .15s ease,border-color .15s ease}
+  .btn-quiet{font-family:Archivo;font-weight:500;font-size:0.9375rem;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color .15s ease,border-color .15s ease}
   .btn-quiet:hover{color:var(--ink);border-color:var(--ink)}
+
+  /* hero photo */
+  .hero-photo-outer{position:relative;z-index:1;width:min(78vw,17.5rem);margin-inline:auto;aspect-ratio:1/1}
+  .hero-photo-ring{position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 0deg,var(--teal),var(--blue),var(--violet),var(--teal));filter:blur(1px);opacity:.65}
+  @media (prefers-reduced-motion:no-preference){.hero-photo-ring{animation:ringSpin 14s linear infinite}}
+  @keyframes ringSpin{to{transform:rotate(360deg)}}
+  .hero-photo{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;border:5px solid var(--navy-deep);box-shadow:var(--shadow-lg);filter:saturate(1.02)}
+  .hero-photo-badge{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--paper-lift);color:var(--ink);font-family:Archivo;font-weight:600;font-size:.75rem;padding:.55rem 1.1rem;border-radius:999px;box-shadow:var(--shadow-md);white-space:nowrap;text-align:center}
 
   /* scroll reveal */
   .reveal{opacity:1;transform:none}
@@ -104,42 +128,82 @@
 
   section{padding-block:clamp(3.5rem,8vw,6rem)}
   .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:2rem;border-top:1px solid var(--rule);padding-top:1.1rem;margin-bottom:2.5rem}
-  h2{font-weight:600;font-size:clamp(1.35rem,1.1rem + .7vw,1.75rem);letter-spacing:-0.025em;margin:0}
+  h2{font-weight:700;font-size:clamp(1.5rem,1.2rem + .9vw,2rem);letter-spacing:-0.025em;margin:0}
   .sec-head p{margin:0;color:var(--ink-soft);font-size:0.9375rem;max-width:34ch;text-align:right}
   @media (max-width:640px){.sec-head{flex-direction:column;gap:.6rem}.sec-head p{text-align:left}}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+  @media (min-width:840px){.about-grid{grid-template-columns:16rem 1fr}}
+  .fact-list{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;align-content:start}
+  @media (min-width:840px){.fact-list{grid-template-columns:1fr}}
+  .fact{background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);padding:.9rem 1rem}
+  .fact b{display:block;font-family:Archivo;font-weight:700;font-size:.875rem;letter-spacing:-0.01em}
+  .fact span{display:block;font-family:Archivo;font-size:.75rem;color:var(--ink-soft);margin-top:.2rem;line-height:1.4}
+  .story p{margin:0 0 1.1rem;max-width:var(--measure)}
+  .story p:last-child{margin-bottom:0}
+  .story strong{color:var(--ink)}
+
+  /* impact stats */
+  #impact{background:var(--navy-deep)}
+  #impact .sec-head{border-top-color:rgba(255,255,255,.14)}
+  #impact .sec-head h2{color:#fff}
+  #impact .sec-head p{color:rgba(255,255,255,.6)}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+  @media (min-width:700px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
+  .stat-tile{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.4rem 1.1rem;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
+  .stat-tile:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
+  .stat-num{font-family:Archivo;font-weight:800;font-size:clamp(1.6rem,1.3rem + 1.2vw,2.25rem);letter-spacing:-0.02em;background-image:var(--gradient);background-clip:text;-webkit-background-clip:text;color:transparent}
+  .stat-label{font-family:Archivo;font-size:.8125rem;color:rgba(255,255,255,.68);margin-top:.4rem;line-height:1.4}
 
   /* selected work */
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
   @media (max-width:820px){.cases{grid-template-columns:1fr}}
   .case{background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.75rem 1.6rem 1.6rem;display:flex;flex-direction:column;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
   .case:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-  .case-viz{display:flex;align-items:center;gap:.3rem;margin-bottom:1.1rem}
-  .case-viz span{width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none}
-  .case-viz span:nth-child(3){background:var(--blue)}
-  .case-viz span:nth-child(5){background:var(--violet)}
-  .case-viz i{width:16px;height:1px;background:var(--rule);flex:none}
-  .case h3{margin:0 0 .5rem;font-weight:600;font-size:1.0625rem;letter-spacing:-0.02em}
+  .case-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;background:var(--paper)}
+  .case-icon svg{width:20px;height:20px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .case:nth-child(2) .case-icon svg{stroke:var(--blue)}
+  .case:nth-child(3) .case-icon svg{stroke:var(--violet)}
+  .case h3{margin:0 0 .5rem;font-weight:700;font-size:1.0625rem;letter-spacing:-0.02em}
   .case p{margin:0;color:var(--ink-soft);font-size:0.9375rem}
-  .case-stat{font-family:Archivo;font-weight:600;font-size:.875rem;color:var(--ink);margin:.85rem 0 0}
+  .case-stat{font-family:Archivo;font-weight:700;font-size:.875rem;color:var(--ink);margin:.85rem 0 0}
   .case-links{margin-top:auto;padding-top:1.1rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:1.1rem 1.4rem}
-  .case-links a{font-family:Archivo;font-size:.8125rem;font-weight:500;color:var(--blue);text-decoration:none}
+  .case-links a{font-family:Archivo;font-size:.8125rem;font-weight:600;color:var(--blue);text-decoration:none}
   .case-links a:hover{text-decoration:underline}
 
-  /* experience highlights */
-  .highlights{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-  @media (max-width:760px){.highlights{grid-template-columns:1fr}}
-  .highlight{background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-sm);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
-  .highlight:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-  .highlight p{margin:0;font-size:.9375rem}
+  /* experience timeline */
+  .timeline{list-style:none;margin:0;padding:0;position:relative}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--teal),var(--blue) 50%,var(--violet))}
+  .t-item{position:relative;padding:0 0 2.25rem 2.75rem}
+  .t-item:last-child{padding-bottom:0}
+  .t-dot{position:absolute;left:0;top:.3rem;width:20px;height:20px;border-radius:50%;background:var(--paper-lift);border:3px solid var(--blue);z-index:1}
+  .t-item:nth-child(1) .t-dot{border-color:var(--teal)}
+  .t-item:nth-child(3) .t-dot{border-color:var(--violet)}
+  .t-role{font-family:Archivo;font-weight:700;font-size:1rem;letter-spacing:-0.01em;margin:0}
+  .t-role span{font-weight:500;color:var(--ink-soft)}
+  .t-date{font-family:Archivo;font-size:.75rem;color:var(--ink-soft);margin:.15rem 0 .6rem}
+  .t-item p{margin:0;max-width:56ch;color:var(--ink-soft);font-size:.9375rem}
 
   /* skills */
-  .skills-chips{display:flex;flex-wrap:wrap;gap:.75rem}
-  .tool-chip{flex:none;font-family:Archivo;font-weight:600;font-size:.9375rem;letter-spacing:-.01em;padding:.6rem 1.05rem;border:1px solid var(--rule);border-radius:999px;background:var(--paper-lift);color:var(--ink);display:inline-flex;align-items:center;gap:.55rem}
-  .tool-chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tool-c,var(--ink-soft));flex:none}
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+  @media (min-width:640px){.skills-grid{grid-template-columns:repeat(4,1fr)}}
+  .skill-badge{display:flex;flex-direction:column;align-items:center;gap:.65rem;background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius);padding:1.35rem 1rem;text-align:center;transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+  .skill-badge:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--blue)}
+  .skill-icon-wrap{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--paper)}
+  .skill-icon-wrap svg{width:22px;height:22px;fill:var(--ink)}
+  .skill-badge span{font-family:Archivo;font-weight:600;font-size:.8125rem;letter-spacing:-0.01em}
 
-  /* contact */
-  .contact-links{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;align-items:center}
-  .contact-note{margin:1.25rem 0 0;color:var(--ink-soft)}
+  /* contact / closing */
+  .book-dark{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+  .book-dark .glow-blob{width:460px;height:460px;top:-160px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,var(--glow-violet),transparent 70%);opacity:.5}
+  .book-dark .wrap{position:relative;z-index:1;text-align:center}
+  .book-dark h2{color:#fff}
+  .book-dark p{color:rgba(255,255,255,.68);max-width:48ch;margin:.9rem auto 0}
+  .contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 1.75rem;align-items:center;margin-top:2rem}
+  .book-dark .btn-quiet{color:rgba(255,255,255,.85);border-bottom-color:rgba(255,255,255,.4)}
+  .book-dark .btn-quiet:hover{color:#fff;border-color:#fff}
+  .contact-note{font-family:Archivo;font-size:.8125rem;color:rgba(255,255,255,.5);margin-top:1.5rem}
 
   footer{border-top:1px solid var(--rule);padding-block:2rem 3rem;font-family:Archivo;font-size:0.8125rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between}
   footer a{color:var(--ink-soft)}
@@ -147,12 +211,14 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap masthead">
     <a class="mark" href="/">Grace Ene</a>
     <nav>
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -161,22 +227,74 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="hero">
-    <div class="glow-blob" aria-hidden="true"></div>
-    <div class="wrap">
+    <div class="glow-blob b1" aria-hidden="true"></div>
+    <div class="glow-blob b2" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
       <div class="hero-copy">
+        <p class="eyebrow">GTM Engineer &middot; Revenue Systems &middot; AI Automation</p>
         <h1>Grace Ene</h1>
-        <p class="hero-role">GTM Engineer</p>
-        <p class="lede">I build revenue systems and AI automation that teams can run on their own.</p>
+        <p class="lede">I turn the busywork that drains revenue teams into systems that run themselves. 8 years in customer success taught me the problem. Now I build the fix.</p>
+        <p class="lede-sub">Self-hosted automation. AI systems tested against real questions with a measured accuracy rate. Built so your team can run them on its own.</p>
         <div class="hero-actions">
           <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Download resume</a>
           <a class="btn-quiet" href="https://github.com/grace-ene" target="_blank" rel="noopener">GitHub</a>
           <a class="btn-quiet" href="https://linkedin.com/in/grace-ene" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+        <div class="quick-badges" aria-hidden="true">
+          <span class="quick-badge">8 Yrs Revenue Ops</span>
+          <span class="quick-badge">3 Systems Shipped Solo</span>
+          <span class="quick-badge">Fixed-Price Delivery</span>
+        </div>
+      </div>
+      <div class="hero-photo-outer">
+        <div class="hero-photo-ring" aria-hidden="true"></div>
+        <img class="hero-photo" src="grace.jpg" srcset="grace.jpg 640w, grace@2x.jpg 1280w" sizes="280px" width="640" height="640" loading="eager" decoding="async" alt="Grace Ene, GTM engineer and automation builder">
+        <div class="hero-photo-badge">8 Yrs Revenue Ops &rarr; AI Systems</div>
       </div>
     </div>
   </div>
+
+  <section id="about" class="wrap reveal">
+    <div class="sec-head">
+      <h2>Why I build this</h2>
+      <p>The short version of a long career in revenue operations.</p>
+    </div>
+    <div class="about-grid">
+      <div class="fact-list">
+        <div class="fact"><b>Los Angeles, CA</b><span>Open to remote roles</span></div>
+        <div class="fact"><b>8 years</b><span>Customer success &rarr; GTM engineering</span></div>
+        <div class="fact"><b>BA, Communication</b><span>University of Southern California</span></div>
+        <div class="fact"><b>Current focus</b><span>Workflow automation &amp; AI systems</span></div>
+      </div>
+      <div class="story">
+        <p>I spent 8 years watching revenue teams lose deals to things that had nothing to do with the product. A lead sat in an inbox for 42 hours. A health score lived in someone's head instead of the CRM. A Friday afternoon disappeared into fixing a spreadsheet that should have updated itself.</p>
+        <p>I got tired of reporting on the problem, so I learned to fix it. I taught myself to build the automation and the AI systems that close those gaps, while I kept doing revenue operations work the whole time. That combination matters: I know the difference between a system that looks good in a demo and one a team can actually run on day 100.</p>
+        <p>Today I build workflow automation and AI systems for revenue and operations teams. I built a health score model across <strong>8,000 customers</strong> using <strong>14 signals</strong> at Paubox. I ran lifecycle experiments that drove <strong>68%</strong> of Q1 2026 expansion pipeline. On my own time, I built and shipped <strong>3</strong> production automation systems, all public, all with real code and real numbers I can show you.</p>
+        <p>I build the boring stuff that makes revenue teams fast, and I measure it instead of promising it. If your team is buried in manual handoffs, I want to talk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The numbers behind the work</h2>
+        <p>Every figure here comes from a real system or a real evaluation.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-tile"><div class="stat-num" data-count="8">0</div><div class="stat-label">Years in revenue ops &amp; customer success</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="8000" data-comma="1">0</div><div class="stat-label">Customers covered by a health score model</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="87">0</div><div class="stat-label">Accounts tracked by an AI monitoring agent</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="68" data-suffix="%">0</div><div class="stat-label">Of Q1 2026 expansion pipeline driven</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="92" data-suffix="%">0</div><div class="stat-label">Retrieval hit rate on a self-hosted AI search system</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Of invoices get human approval before posting</div></div>
+        <div class="stat-tile"><div class="stat-num" data-static="&lt;5s">0</div><div class="stat-label">Lead response time, down from 42 hours</div></div>
+        <div class="stat-tile"><div class="stat-num" data-count="3">0</div><div class="stat-label">Production systems shipped solo, in public</div></div>
+      </div>
+    </div>
+  </section>
 
   <section id="work" class="wrap reveal">
     <div class="sec-head">
@@ -185,7 +303,7 @@
     </div>
     <div class="cases">
       <div class="case">
-        <div class="case-viz" aria-hidden="true"><span></span><i></i><span></span><i></i><span></span></div>
+        <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v4a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V4"/><path d="M12 12v8"/></svg></div>
         <h3>Lead routing, from form to CRM to Slack</h3>
         <p>Built a self-hosted pipeline that enriches, scores, and routes every inbound lead automatically.</p>
         <p class="case-stat">Lead response time: under 5 seconds.</p>
@@ -195,7 +313,7 @@
         </div>
       </div>
       <div class="case">
-        <div class="case-viz" aria-hidden="true"><span></span><i></i><span></span><i></i><span></span></div>
+        <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
         <h3>Invoice extraction, with a human approval gate</h3>
         <p>Built an OCR and local LLM pipeline that drafts every invoice field and checks the math.</p>
         <p class="case-stat">Every invoice gets a human approval gate before it posts.</p>
@@ -205,7 +323,7 @@
         </div>
       </div>
       <div class="case">
-        <div class="case-viz" aria-hidden="true"><span></span><i></i><span></span><i></i><span></span></div>
+        <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M20 20l-4.35-4.35"/></svg></div>
         <h3>Knowledge retrieval, with a measured refusal gate</h3>
         <p>Built a hybrid search system over private documents that cites its sources and refuses out-of-scope questions.</p>
         <p class="case-stat">92% retrieval hit rate. 100% refusal on out-of-corpus questions.</p>
@@ -219,51 +337,102 @@
 
   <section id="experience" class="wrap reveal">
     <div class="sec-head">
-      <h2>Experience highlights</h2>
-      <p>A few things I built and shipped.</p>
+      <h2>Experience</h2>
+      <p>8 years, from customer success to building the systems myself.</p>
     </div>
-    <div class="highlights">
-      <div class="highlight"><p>Built a customer health score system using 14 signals across 8,000 customers, at Paubox.</p></div>
-      <div class="highlight"><p>Built an AI agent that tracks 87 accounts for leadership changes, acquisitions, and funding events, at Paubox.</p></div>
-      <div class="highlight"><p>Ran lifecycle experiments that drove 68% of Q1 2026 expansion pipeline, at Paubox.</p></div>
-      <div class="highlight"><p>Built Invest with Prudie alone, on Supabase, Stripe, Resend, and Netlify.</p></div>
-    </div>
+    <ol class="timeline">
+      <li class="t-item">
+        <span class="t-dot" aria-hidden="true"></span>
+        <h3 class="t-role">Automation &amp; AI Implementation Consultant <span>&middot; Prudie.dev</span></h3>
+        <p class="t-date">Sep 2026 to Present</p>
+        <p>Build self-hosted workflow automation and AI systems for revenue and operations teams, shipped with retries, failure alerts, and a written runbook so each system runs without me.</p>
+      </li>
+      <li class="t-item">
+        <span class="t-dot" aria-hidden="true"></span>
+        <h3 class="t-role">Technical Founder <span>&middot; Invest with Prudie</span></h3>
+        <p class="t-date">Jun 2026 to Present</p>
+        <p>Built a full-stack investing education platform solo, on Supabase, Stripe, Resend, and Netlify. Ran a security audit that found and closed 2 production vulnerabilities.</p>
+      </li>
+      <li class="t-item">
+        <span class="t-dot" aria-hidden="true"></span>
+        <h3 class="t-role">Customer Success Manager <span>&middot; Paubox</span></h3>
+        <p class="t-date">Jul 2025 to Present</p>
+        <p>Built a customer health score system using 14 signals across 8,000 customers, and an AI agent that tracks 87 accounts for leadership changes and funding events. Ran lifecycle experiments that drove 68% of Q1 2026 expansion pipeline.</p>
+      </li>
+      <li class="t-item">
+        <span class="t-dot" aria-hidden="true"></span>
+        <h3 class="t-role">Customer Success Manager <span>&middot; Webex (Cisco)</span></h3>
+        <p class="t-date">Nov 2022 to Jul 2025</p>
+        <p>Managed a $4 to 5M ARR portfolio and maintained a 94% renewal rate across 6 consecutive quarters through data-driven pipeline analysis.</p>
+      </li>
+      <li class="t-item">
+        <span class="t-dot" aria-hidden="true"></span>
+        <h3 class="t-role">Customer Success Manager <span>&middot; AppFolio &amp; Trainual</span></h3>
+        <p class="t-date">2018 to 2022</p>
+        <p>Started in SaaS customer success, building onboarding systems and knowledge bases that cut ramp time for hundreds of customers.</p>
+      </li>
+    </ol>
   </section>
 
   <section id="skills" class="wrap reveal">
     <div class="sec-head">
-      <h2>Skills</h2>
-      <p>Tools I use to build and ship.</p>
+      <h2>Tools I build with</h2>
+      <p>The stack behind the systems above.</p>
     </div>
-    <div class="skills-chips">
-      <span class="tool-chip" style="--tool-c:#22A794">n8n</span>
-      <span class="tool-chip" style="--tool-c:#2B7FFE">Python</span>
-      <span class="tool-chip" style="--tool-c:#5867EF">SQL</span>
-      <span class="tool-chip" style="--tool-c:#22A794">API integrations</span>
-      <span class="tool-chip" style="--tool-c:#2B7FFE">Salesforce</span>
-      <span class="tool-chip" style="--tool-c:#5867EF">HubSpot</span>
-      <span class="tool-chip" style="--tool-c:#22A794">RAG and vector search</span>
-      <span class="tool-chip" style="--tool-c:#2B7FFE">Supabase</span>
+    <div class="skills-grid">
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></div>
+        <span>n8n</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></div>
+        <span>Python</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C7.58 2 4 3.79 4 6s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 8v4c0 2.21 3.58 4 8 4s8-1.79 8-4V8c0 2.21-3.58 4-8 4S4 10.21 4 8zm0 6v4c0 2.21 3.58 4 8 4s8-1.79 8-4v-4c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/></svg></div>
+        <span>SQL</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.006 5.415a4.195 4.195 0 013.045-1.306c1.56 0 2.954.9 3.69 2.205.63-.3 1.35-.45 2.1-.45 2.85 0 5.159 2.34 5.159 5.22s-2.31 5.22-5.176 5.22c-.345 0-.69-.044-1.02-.104a3.75 3.75 0 01-3.3 1.95c-.6 0-1.155-.15-1.65-.375A4.314 4.314 0 018.88 20.4a4.302 4.302 0 01-4.05-2.82c-.27.062-.54.076-.825.076-2.204 0-4.005-1.8-4.005-4.05 0-1.5.811-2.805 2.01-3.51-.255-.57-.39-1.2-.39-1.846 0-2.58 2.1-4.65 4.65-4.65 1.53 0 2.85.705 3.72 1.8"/></svg></div>
+        <span>Salesforce</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></div>
+        <span>HubSpot</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"/></svg></div>
+        <span>Supabase</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 010 5.656l-3 3a4 4 0 01-5.656-5.656l1.5-1.5a1 1 0 111.414 1.414l-1.5 1.5a2 2 0 102.828 2.828l3-3a2 2 0 000-2.828 1 1 0 111.414-1.414zM10.172 13.828a4 4 0 010-5.656l3-3a4 4 0 015.656 5.656l-1.5 1.5a1 1 0 11-1.414-1.414l1.5-1.5a2 2 0 10-2.828-2.828l-3 3a2 2 0 000 2.828 1 1 0 11-1.414 1.414z"/></svg></div>
+        <span>API Integrations</span>
+      </div>
+      <div class="skill-badge">
+        <div class="skill-icon-wrap" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C16.456 7.68 17.19 8 18 8z"/></svg></div>
+        <span>RAG &amp; Vector Search</span>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="wrap reveal">
-    <div class="sec-head">
-      <h2>Contact</h2>
-      <p>I would like to hear from you.</p>
+  <section id="contact" class="book-dark reveal">
+    <div class="glow-blob" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2>Let's build something your team can run on its own</h2>
+      <p>Open to remote roles in GTM engineering, revenue systems, and AI automation.</p>
+      <div class="contact-links">
+        <a class="btn" href="mailto:graceeneglobal@gmail.com">graceeneglobal@gmail.com</a>
+        <a class="btn-quiet" href="https://linkedin.com/in/grace-ene" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn-quiet" href="https://github.com/grace-ene" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="contact-note">Grace Ene. Los Angeles, California.</p>
     </div>
-    <div class="contact-links">
-      <a class="btn-quiet email-link" data-email-user="graceeneglobal" data-email-host="gmail.com" href="#">graceeneglobal (at) gmail.com</a>
-      <a class="btn-quiet" href="https://linkedin.com/in/grace-ene" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn-quiet" href="https://github.com/grace-ene" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <p class="contact-note">Open to remote roles.</p>
   </section>
 </main>
 
 <footer class="wrap">
   <div>Grace Ene. Los Angeles, California.</div>
-  <div><a class="email-link" data-email-user="graceeneglobal" data-email-host="gmail.com" href="#">graceeneglobal (at) gmail.com</a></div>
+  <div><a href="mailto:graceeneglobal@gmail.com">graceeneglobal@gmail.com</a></div>
 </footer>
 
 <script type="application/ld+json">
@@ -274,22 +443,17 @@
   "name":"Grace Ene",
   "jobTitle":"GTM Engineer",
   "url":"https://grace-ene.netlify.app/",
-  "image":"https://prudie.dev/grace@2x.jpg",
+  "image":"https://grace-ene.netlify.app/grace@2x.jpg",
   "email":"mailto:graceeneglobal@gmail.com",
+  "alumniOf":"University of Southern California",
   "sameAs":["https://github.com/grace-ene","https://linkedin.com/in/grace-ene"],
-  "knowsAbout":["n8n","Python","SQL","API integrations","Salesforce","HubSpot","RAG and vector search","Supabase"]
+  "knowsAbout":["n8n","Python","SQL","API integrations","Salesforce","HubSpot","RAG and vector search","Supabase","workflow automation","revenue operations"]
 }
 </script>
 
 <script>
 (function(){
   document.documentElement.classList.add('js');
-
-  document.querySelectorAll('.email-link').forEach(function(el){
-    var addr = el.getAttribute('data-email-user') + '@' + el.getAttribute('data-email-host');
-    el.href = 'mailto:' + addr;
-    el.textContent = addr;
-  });
 
   var header = document.querySelector('.site-header');
   var progress = document.querySelector('.scroll-progress');
@@ -314,6 +478,45 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function formatCount(n, el){
+    var comma = el.dataset.comma;
+    var suffix = el.dataset.suffix || '';
+    var s = Math.round(n).toString();
+    if(comma){ s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    return s + suffix;
+  }
+  function animateStat(el){
+    if(el.dataset.static){ el.textContent = el.dataset.static; return; }
+    var target = parseFloat(el.dataset.count);
+    if(isNaN(target)){ return; }
+    if(reduceMotion){ el.textContent = formatCount(target, el); return; }
+    var duration = 1100;
+    var start = null;
+    function step(ts){
+      if(!start){ start = ts; }
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = formatCount(target * eased, el);
+      if(progress < 1){ requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+  }
+  var statEls = document.querySelectorAll('.stat-num');
+  if('IntersectionObserver' in window){
+    var statIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateStat(entry.target);
+          statIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    statEls.forEach(function(el){ statIo.observe(el); });
+  } else {
+    statEls.forEach(animateStat);
   }
 })();
 </script>
