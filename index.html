@@ -96,7 +96,6 @@
   .eyebrow{font-family:Archivo;font-weight:700;font-size:.75rem;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin:0 0 1rem}
   h1{font-weight:700;font-size:clamp(2.6rem,1.7rem + 3.8vw,4.25rem);line-height:1.02;letter-spacing:-0.035em;margin:0;color:#fff}
   .lede{max-width:var(--measure);margin:1.25rem 0 0;color:rgba(255,255,255,.78);font-size:clamp(1.0625rem,1rem + .3vw,1.25rem)}
-  .lede-sub{max-width:var(--measure);margin:.85rem 0 0;color:rgba(255,255,255,.55);font-family:Archivo;font-size:.875rem}
   .hero-actions{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;align-items:center;margin-top:2rem}
   .hero-actions .btn{background-image:var(--gradient-cta);color:#fff;box-shadow:0 12px 30px -12px var(--glow-violet)}
   .hero-actions .btn:hover{filter:brightness(1.12);box-shadow:0 16px 36px -12px var(--glow-blue)}
@@ -144,21 +143,8 @@
   .story p:last-child{margin-bottom:0}
   .story strong{color:var(--ink)}
 
-  /* impact stats */
-  #impact{background:var(--navy-deep)}
-  #impact .sec-head{border-top-color:rgba(255,255,255,.14)}
-  #impact .sec-head h2{color:#fff}
-  #impact .sec-head p{color:rgba(255,255,255,.6)}
-  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
-  @media (min-width:700px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
-  .stat-tile{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.4rem 1.1rem;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}
-  .stat-tile:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
-  .stat-num{font-family:Archivo;font-weight:800;font-size:clamp(1.6rem,1.3rem + 1.2vw,2.25rem);letter-spacing:-0.02em;background-image:var(--gradient);background-clip:text;-webkit-background-clip:text;color:transparent}
-  .stat-label{font-family:Archivo;font-size:.8125rem;color:rgba(255,255,255,.68);margin-top:.4rem;line-height:1.4}
-
   /* selected work */
-  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-  @media (max-width:820px){.cases{grid-template-columns:1fr}}
+  .cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem}
   .case{background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.75rem 1.6rem 1.6rem;display:flex;flex-direction:column;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
   .case:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
   .case-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;background:var(--paper)}
@@ -173,17 +159,31 @@
   .case-links a:hover{text-decoration:underline}
 
   /* experience timeline */
-  .timeline{list-style:none;margin:0;padding:0;position:relative}
-  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--teal),var(--blue) 50%,var(--violet))}
-  .t-item{position:relative;padding:0 0 2.25rem 2.75rem}
-  .t-item:last-child{padding-bottom:0}
-  .t-dot{position:absolute;left:0;top:.3rem;width:20px;height:20px;border-radius:50%;background:var(--paper-lift);border:3px solid var(--blue);z-index:1}
-  .t-item:nth-child(1) .t-dot{border-color:var(--teal)}
-  .t-item:nth-child(3) .t-dot{border-color:var(--violet)}
+  .timeline{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:1.75rem}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--teal),var(--blue) 50%,var(--violet));z-index:0}
+  .t-item{position:relative;padding:0 0 0 2.75rem}
+  .t-dot{position:absolute;left:0;top:1.3rem;width:20px;height:20px;border-radius:50%;background:var(--paper-lift);border:3px solid var(--blue);z-index:2;transition:transform .25s var(--ease)}
+  .t-item:nth-child(3n+1) .t-dot{border-color:var(--teal)}
+  .t-item:nth-child(3n) .t-dot{border-color:var(--violet)}
+  .t-card{background:var(--paper-lift);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:1.35rem 1.5rem;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease);position:relative;z-index:1}
+  .t-card:hover{transform:translateY(-5px) scale(1.015);box-shadow:var(--shadow-lg);border-color:var(--blue)}
+  .t-item:hover .t-dot{transform:scale(1.25)}
   .t-role{font-family:Archivo;font-weight:700;font-size:1rem;letter-spacing:-0.01em;margin:0}
   .t-role span{font-weight:500;color:var(--ink-soft)}
   .t-date{font-family:Archivo;font-size:.75rem;color:var(--ink-soft);margin:.15rem 0 .6rem}
-  .t-item p{margin:0;max-width:56ch;color:var(--ink-soft);font-size:.9375rem}
+  .t-card p{margin:0;color:var(--ink-soft);font-size:.9375rem}
+  .t-thread{margin-top:.9rem;padding-top:.8rem;border-top:1px dashed var(--rule);font-family:Archivo;font-size:.8125rem;font-style:italic}
+  .t-thread b{font-style:normal;font-weight:700;color:var(--teal);margin-right:.3rem}
+  @media (min-width:900px){
+    .timeline::before{left:50%;transform:translateX(-50%)}
+    .t-item{width:calc(50% - 2.25rem);padding:0}
+    .t-item:nth-child(odd){margin-right:auto}
+    .t-item:nth-child(even){margin-left:auto}
+    .t-item .t-dot{left:auto}
+    .t-item:nth-child(odd) .t-dot{right:-2.5rem}
+    .t-item:nth-child(even) .t-dot{left:-2.5rem}
+    .t-card,.t-card p{max-width:none}
+  }
 
   /* skills */
   .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
@@ -235,8 +235,7 @@
       <div class="hero-copy">
         <p class="eyebrow">GTM Engineer &middot; Revenue Systems &middot; AI Automation</p>
         <h1>Grace Ene</h1>
-        <p class="lede">I turn the busywork that drains revenue teams into systems that run themselves. 8 years in customer success taught me the problem. Now I build the fix.</p>
-        <p class="lede-sub">Self-hosted automation. AI systems tested against real questions with a measured accuracy rate. Built so your team can run them on its own.</p>
+        <p class="lede">I build the systems revenue teams run on: lead routing, account signals, and AI workflows. 8 years in customer success and revenue ops showed me where deals get lost. Now I build the fix.</p>
         <div class="hero-actions">
           <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Download resume</a>
           <a class="btn-quiet" href="https://github.com/grace-ene" target="_blank" rel="noopener">GitHub</a>
@@ -245,7 +244,7 @@
         <div class="quick-badges" aria-hidden="true">
           <span class="quick-badge">8 Yrs Revenue Ops</span>
           <span class="quick-badge">3 Systems Shipped Solo</span>
-          <span class="quick-badge">Fixed-Price Delivery</span>
+          <span class="quick-badge">500+ Accounts Watched by My Signal System</span>
         </div>
       </div>
       <div class="hero-photo-outer">
@@ -264,34 +263,15 @@
     <div class="about-grid">
       <div class="fact-list">
         <div class="fact"><b>Los Angeles, CA</b><span>Open to remote roles</span></div>
-        <div class="fact"><b>8 years</b><span>Customer success &rarr; GTM engineering</span></div>
-        <div class="fact"><b>BA, Communication</b><span>University of Southern California</span></div>
+        <div class="fact"><b>8 years</b><span>Customer success</span><span>Now: GTM engineering</span></div>
         <div class="fact"><b>Current focus</b><span>Workflow automation &amp; AI systems</span></div>
+        <div class="fact"><b>BA, Business/Corporate Communication</b><span>University of Southern California</span></div>
       </div>
       <div class="story">
-        <p>I spent 8 years watching revenue teams lose deals to things that had nothing to do with the product. A lead sat in an inbox for 42 hours. A health score lived in someone's head instead of the CRM. A Friday afternoon disappeared into fixing a spreadsheet that should have updated itself.</p>
+        <p>I spent 8 years watching revenue teams lose deals to slow handoffs, stale data, and manual busywork. A lead sat in an inbox for 42 hours. A health score lived in someone's head instead of the CRM. A Friday afternoon disappeared into fixing a spreadsheet that should have updated itself.</p>
         <p>I got tired of reporting on the problem, so I learned to fix it. I taught myself to build the automation and the AI systems that close those gaps, while I kept doing revenue operations work the whole time. That combination matters: I know the difference between a system that looks good in a demo and one a team can actually run on day 100.</p>
-        <p>Today I build workflow automation and AI systems for revenue and operations teams. I built a health score model across <strong>8,000 customers</strong> using <strong>14 signals</strong> at Paubox. I ran lifecycle experiments that drove <strong>68%</strong> of Q1 2026 expansion pipeline. On my own time, I built and shipped <strong>3</strong> production automation systems, all public, all with real code and real numbers I can show you.</p>
-        <p>I build the boring stuff that makes revenue teams fast, and I measure it instead of promising it. If your team is buried in manual handoffs, I want to talk.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="impact" class="reveal">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>The numbers behind the work</h2>
-        <p>Every figure here comes from a real system or a real evaluation.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-tile"><div class="stat-num" data-count="8">0</div><div class="stat-label">Years in revenue ops &amp; customer success</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="8000" data-comma="1">0</div><div class="stat-label">Customers covered by a health score model</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="87">0</div><div class="stat-label">Accounts tracked by an AI monitoring agent</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="68" data-suffix="%">0</div><div class="stat-label">Of Q1 2026 expansion pipeline driven</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="92" data-suffix="%">0</div><div class="stat-label">Retrieval hit rate on a self-hosted AI search system</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Of invoices get human approval before posting</div></div>
-        <div class="stat-tile"><div class="stat-num" data-static="&lt;5s">0</div><div class="stat-label">Lead response time, down from 42 hours</div></div>
-        <div class="stat-tile"><div class="stat-num" data-count="3">0</div><div class="stat-label">Production systems shipped solo, in public</div></div>
+        <p>Today I build workflow automation and AI systems that connect Sales, Marketing, Customer Success, and Finance. I engineered an account-signal pipeline that watches <strong>500+ accounts</strong> for trigger events at Paubox, and I ran lifecycle experiments that drove <strong>68%</strong> of Q1 2026 expansion pipeline. On my own time, I built and shipped <strong>3</strong> production automation systems, all public, all with real code and real numbers I can show.</p>
+        <p>I build the boring stuff that makes revenue teams fast, and I measure it instead of promising it. That is the work I want to keep doing, as part of a team.</p>
       </div>
     </div>
   </section>
@@ -305,21 +285,11 @@
       <div class="case">
         <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v4a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V4"/><path d="M12 12v8"/></svg></div>
         <h3>Lead routing, from form to CRM to Slack</h3>
-        <p>Built a self-hosted pipeline that enriches, scores, and routes every inbound lead automatically.</p>
+        <p>Engineered a self-hosted pipeline that enriches, scores, and routes every inbound lead automatically.</p>
         <p class="case-stat">Lead response time: under 5 seconds.</p>
         <div class="case-links">
           <a href="https://prudie.dev/case-studies/lead-routing/">Read the case study</a>
           <a href="https://github.com/grace-ene/case-study-01-lead-routing">View code</a>
-        </div>
-      </div>
-      <div class="case">
-        <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
-        <h3>Invoice extraction, with a human approval gate</h3>
-        <p>Built an OCR and local LLM pipeline that drafts every invoice field and checks the math.</p>
-        <p class="case-stat">Every invoice gets a human approval gate before it posts.</p>
-        <div class="case-links">
-          <a href="https://prudie.dev/case-studies/document-extraction/">Read the case study</a>
-          <a href="https://github.com/grace-ene/case-study-02-document-extraction">View code</a>
         </div>
       </div>
       <div class="case">
@@ -330,6 +300,16 @@
         <div class="case-links">
           <a href="https://prudie.dev/case-studies/knowledge-retrieval/">Read the case study</a>
           <a href="https://github.com/grace-ene/case-study-03-knowledge-retrieval">View code</a>
+        </div>
+      </div>
+      <div class="case">
+        <div class="case-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+        <h3>Invoice extraction, with a human approval gate</h3>
+        <p>Shipped an OCR and local LLM pipeline that drafts every invoice field and checks the math.</p>
+        <p class="case-stat">Every invoice gets a human approval gate before it posts.</p>
+        <div class="case-links">
+          <a href="https://prudie.dev/case-studies/document-extraction/">Read the case study</a>
+          <a href="https://github.com/grace-ene/case-study-02-document-extraction">View code</a>
         </div>
       </div>
     </div>
@@ -343,33 +323,48 @@
     <ol class="timeline">
       <li class="t-item">
         <span class="t-dot" aria-hidden="true"></span>
-        <h3 class="t-role">Automation &amp; AI Implementation Consultant <span>&middot; Prudie.dev</span></h3>
-        <p class="t-date">Sep 2026 to Present</p>
-        <p>Build self-hosted workflow automation and AI systems for revenue and operations teams, shipped with retries, failure alerts, and a written runbook so each system runs without me.</p>
+        <div class="t-card">
+          <h3 class="t-role">Automation &amp; AI Implementation Consultant <span>&middot; Prudie.dev</span></h3>
+          <p class="t-date">Sep 2026 to Present</p>
+          <p>Build self-hosted workflow automation and AI systems for revenue and operations teams, shipped with retries, failure alerts, and a written runbook so each system runs without me.</p>
+          <p class="t-thread"><b>Builds on:</b> the signal systems shipped at Paubox and the production build at Invest with Prudie.</p>
+        </div>
       </li>
       <li class="t-item">
         <span class="t-dot" aria-hidden="true"></span>
-        <h3 class="t-role">Technical Founder <span>&middot; Invest with Prudie</span></h3>
-        <p class="t-date">Jun 2026 to Present</p>
-        <p>Built a full-stack investing education platform solo, on Supabase, Stripe, Resend, and Netlify. Ran a security audit that found and closed 2 production vulnerabilities.</p>
+        <div class="t-card">
+          <h3 class="t-role">Technical Founder <span>&middot; Invest with Prudie</span></h3>
+          <p class="t-date">Jun 2026 to Present</p>
+          <p>Built a full-stack investing education platform independently, on Supabase, Stripe, Resend, and Netlify. Ran a security audit that found and closed 2 production vulnerabilities.</p>
+          <p class="t-thread"><b>Builds on:</b> the technical skills gained while automating workflows at Paubox.</p>
+        </div>
       </li>
       <li class="t-item">
         <span class="t-dot" aria-hidden="true"></span>
-        <h3 class="t-role">Customer Success Manager <span>&middot; Paubox</span></h3>
-        <p class="t-date">Jul 2025 to Present</p>
-        <p>Built a customer health score system using 14 signals across 8,000 customers, and an AI agent that tracks 87 accounts for leadership changes and funding events. Ran lifecycle experiments that drove 68% of Q1 2026 expansion pipeline.</p>
+        <div class="t-card">
+          <h3 class="t-role">Customer Success Manager <span>&middot; Paubox</span></h3>
+          <p class="t-date">Jul 2025 to Present</p>
+          <p>Engineered an account-signal pipeline that watches 500+ accounts for trigger events, and retained 97% of an 87-account healthcare SaaS book worth $1.49M+ ARR.</p>
+          <p class="t-thread"><b>Builds on:</b> the account management discipline from Webex, now expressed through systems and automation.</p>
+        </div>
       </li>
       <li class="t-item">
         <span class="t-dot" aria-hidden="true"></span>
-        <h3 class="t-role">Customer Success Manager <span>&middot; Webex (Cisco)</span></h3>
-        <p class="t-date">Nov 2022 to Jul 2025</p>
-        <p>Managed a $4 to 5M ARR portfolio and maintained a 94% renewal rate across 6 consecutive quarters through data-driven pipeline analysis.</p>
+        <div class="t-card">
+          <h3 class="t-role">Customer Success Manager <span>&middot; Webex (Cisco)</span></h3>
+          <p class="t-date">Nov 2022 to Jul 2025</p>
+          <p>Managed a $4 to 5M ARR portfolio and maintained a 94% renewal rate across 6 consecutive quarters through data-driven pipeline analysis.</p>
+          <p class="t-thread"><b>Builds on:</b> the onboarding playbooks from AppFolio and Trainual, applied to a larger portfolio.</p>
+        </div>
       </li>
       <li class="t-item">
         <span class="t-dot" aria-hidden="true"></span>
-        <h3 class="t-role">Customer Success Manager <span>&middot; AppFolio &amp; Trainual</span></h3>
-        <p class="t-date">2018 to 2022</p>
-        <p>Started in SaaS customer success, building onboarding systems and knowledge bases that cut ramp time for hundreds of customers.</p>
+        <div class="t-card">
+          <h3 class="t-role">Customer Success Manager <span>&middot; AppFolio &amp; Trainual</span></h3>
+          <p class="t-date">2018 to 2022</p>
+          <p>Started in SaaS customer success, building onboarding systems and knowledge bases that cut ramp time for hundreds of customers.</p>
+          <p class="t-thread"><b>Where it started:</b> customer success fundamentals that shaped everything after.</p>
+        </div>
       </li>
     </ol>
   </section>
@@ -418,7 +413,7 @@
   <section id="contact" class="book-dark reveal">
     <div class="glow-blob" aria-hidden="true"></div>
     <div class="wrap">
-      <h2>Let's build something your team can run on its own</h2>
+      <h2>Let's build what's next</h2>
       <p>Open to remote roles in GTM engineering, revenue systems, and AI automation.</p>
       <div class="contact-links">
         <a class="btn" href="mailto:graceeneglobal@gmail.com">graceeneglobal@gmail.com</a>
@@ -478,45 +473,6 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
-  }
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function formatCount(n, el){
-    var comma = el.dataset.comma;
-    var suffix = el.dataset.suffix || '';
-    var s = Math.round(n).toString();
-    if(comma){ s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-    return s + suffix;
-  }
-  function animateStat(el){
-    if(el.dataset.static){ el.textContent = el.dataset.static; return; }
-    var target = parseFloat(el.dataset.count);
-    if(isNaN(target)){ return; }
-    if(reduceMotion){ el.textContent = formatCount(target, el); return; }
-    var duration = 1100;
-    var start = null;
-    function step(ts){
-      if(!start){ start = ts; }
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = formatCount(target * eased, el);
-      if(progress < 1){ requestAnimationFrame(step); }
-    }
-    requestAnimationFrame(step);
-  }
-  var statEls = document.querySelectorAll('.stat-num');
-  if('IntersectionObserver' in window){
-    var statIo = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          animateStat(entry.target);
-          statIo.unobserve(entry.target);
-        }
-      });
-    }, {threshold:0.4});
-    statEls.forEach(function(el){ statIo.observe(el); });
-  } else {
-    statEls.forEach(animateStat);
   }
 })();
 </script>
